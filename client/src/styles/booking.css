@@ -2,10 +2,8 @@
   width: 100%;
   min-height: 70vh;
   display: flex;
-  justify-content: flex-start;   
-  align-items: center;
-  flex-direction: column;
-  padding-top: 50px; /* Added padding to move the form down */
+  justify-content: center;   
+  align-items: center;        
 }
 
 .glass-form {
