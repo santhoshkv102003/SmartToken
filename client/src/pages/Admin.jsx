@@ -99,32 +99,21 @@ const Admin = () => {
                   className="btn btn-primary"
                   onClick={() => setSection("form")}
                 >
-                  <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round">
-                    <line x1="12" y1="5" x2="12" y2="19"></line>
-                    <line x1="5" y1="12" x2="19" y2="12"></line>
-                  </svg>
-                  New Patient
+                  Add New Patient
                 </button>
                 
                 <button 
                   className="btn btn-outline"
                   onClick={() => setSection("upcoming")}
                 >
-                  <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round">
-                    <path d="M21 15a2 2 0 0 1-2 2H7l-4 4V5a2 2 0 0 1 2-2h14a2 2 0 0 1 2 2z"></path>
-                  </svg>
-                  Upcoming ({upcomingPatients.length})
+                  Upcoming Patients({upcomingPatients.length})
                 </button>
                 
                 <button 
                   className="btn btn-outline"
                   onClick={() => setSection("visited")}
                 >
-                  <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round">
-                    <path d="M22 11.08V12a10 10 0 1 1-5.93-9.14"></path>
-                    <polyline points="22 4 12 14.01 9 11.01"></polyline>
-                  </svg>
-                  Visited ({visitedPatients.length})
+                  Visited Patients({visitedPatients.length})
                 </button>
               </div>
               
@@ -137,7 +126,7 @@ const Admin = () => {
                   <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round">
                     <polyline points="9 18 15 12 9 6"></polyline>
                   </svg>
-                  Next Patient
+                  Call Next Patient
                 </button>
               </div>
             </div>
@@ -168,7 +157,7 @@ const Admin = () => {
                 <line x1="19" y1="12" x2="5" y2="12"></line>
                 <polyline points="12 19 5 12 12 5"></polyline>
               </svg>
-              Back to Dashboard
+              Back 
             </button>
             
             <div className="list-container">
@@ -192,7 +181,7 @@ const Admin = () => {
                 <line x1="19" y1="12" x2="5" y2="12"></line>
                 <polyline points="12 19 5 12 12 5"></polyline>
               </svg>
-              Back to Dashboard
+              Back 
             </button>
             
             <div className="list-container">

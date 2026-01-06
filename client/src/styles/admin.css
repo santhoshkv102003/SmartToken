@@ -1,7 +1,9 @@
 /* Admin Page Styles */
 .admin-bg {
   min-height: 100vh;
-  background: linear-gradient(135deg, #0f172a 0%, #1e293b 100%);
+  background: linear-gradient(rgba(27, 122, 106, 0.9), rgba(30, 41, 59, 0.9)), 
+              url('../assets/image.png') no-repeat center center fixed;
+  background-size: cover;
   color: #fff;
   padding: 2rem 1.5rem 4rem;
   position: relative;
@@ -29,7 +31,7 @@
   font-size: 1.75rem;
   font-weight: 700;
   margin: 0;
-  background: linear-gradient(90deg, #6366f1, #8b5cf6);
+  background: linear-gradient(90deg, #efeffa, #f6f3fd);
   background-clip: text;
   -webkit-background-clip: text;
   -webkit-text-fill-color: transparent;

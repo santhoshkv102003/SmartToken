@@ -5,7 +5,9 @@
   justify-content: center;
   align-items: center;
   padding: 1.5rem;
-  background: linear-gradient(135deg, #0f172a 0%, #1e293b 100%);
+  background: linear-gradient(rgba(30, 41, 59, 0.9), rgba(27, 122, 106, 0.9)),
+              url('../assets/image.png') no-repeat center center fixed;
+  background-size: cover;
   position: relative;
   overflow: hidden;
 }

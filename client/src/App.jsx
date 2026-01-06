@@ -15,8 +15,9 @@ const App = () => {
   return (
     <AppProvider>
       <BrowserRouter>
-        <div className="app-background">
-          <Routes>
+        {/* <div className="app-background"> */}
+          <div>          
+            <Routes>
 
           <Route path="/" element={<Home />} />
 
