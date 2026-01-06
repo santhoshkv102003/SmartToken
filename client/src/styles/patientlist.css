@@ -1,0 +1,27 @@
+.list-wrapper {
+  margin-top: 50px;
+  text-align: center;
+  color: white;
+}
+
+.list-container {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(240px, 1fr));
+  gap: 20px;
+  padding: 30px;
+}
+
+.list-card {
+  padding: 20px;
+  background: rgba(255,255,255,0.25);
+  border-radius: 16px;
+  backdrop-filter: blur(12px);
+  box-shadow: 0px 8px 20px rgba(0,0,0,0.25);
+  color: white;
+  animation: fadeUp 0.5s ease;
+}
+
+@keyframes fadeUp {
+  from { opacity: 0; transform: translateY(15px); }
+  to { opacity: 1; transform: translateY(0); }
+}
