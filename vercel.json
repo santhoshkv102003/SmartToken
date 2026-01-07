@@ -20,15 +20,15 @@
         },
         {
             "source": "/assets/(.*)",
-            "destination": "/client/assets/$1"
+            "destination": "/client/dist/assets/$1"
         },
         {
             "source": "/vite.svg",
-            "destination": "/client/vite.svg"
+            "destination": "/client/dist/vite.svg"
         },
         {
             "source": "/(.*)",
-            "destination": "/client/index.html"
+            "destination": "/client/dist/index.html"
         }
     ]
 }
