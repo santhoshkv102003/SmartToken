@@ -2,7 +2,7 @@ import { createContext, useState, useEffect } from "react";
 
 export const AppContext = createContext();
 
-const API_BASE = "http://localhost:5000/api";
+const API_BASE = "/api";
 
 export const AppProvider = ({ children }) => {
   const [upcomingPatients, setUpcoming] = useState([]);
@@ -26,13 +26,13 @@ export const AppProvider = ({ children }) => {
     // Clear all patient data
     setUpcoming([]);
     setVisited([]);
-    
+
     // Clear admin state
     setAdminLogged(false);
-    
+
     // Clear local storage
     localStorage.removeItem("adminLogged");
-    
+
     // Force a hard refresh to ensure clean state
     window.location.href = '/';
   };
@@ -67,16 +67,16 @@ export const AppProvider = ({ children }) => {
         headers: { "Content-Type": "application/json" },
         body: JSON.stringify(p),
       });
-      
+
       if (!response.ok) {
         throw new Error('Failed to add patient');
       }
-      
+
       const newPatient = await response.json();
-      
+
       // Update the state directly with the new patient
       setUpcoming(prev => [...prev, newPatient]);
-      
+
     } catch (err) {
       console.error("Error adding patient", err);
       throw err; // Re-throw the error to handle it in the component if needed
@@ -86,23 +86,23 @@ export const AppProvider = ({ children }) => {
   // Next patient → PATCH /api/patients/next
   const nextPatient = async () => {
     if (upcomingPatients.length === 0) return; // No patients to process
-    
+
     const nextPatient = upcomingPatients[0];
-    
+
     try {
       // Make the API call first
       const response = await fetch(`${API_BASE}/patients/next`, {
         method: "PATCH",
       });
-      
+
       if (!response.ok) {
         throw new Error('Failed to update patient status');
       }
-      
+
       // Only update the UI after successful API call
       setUpcoming(prev => prev.slice(1));
       setVisited(prev => [nextPatient, ...prev]);
-      
+
     } catch (err) {
       console.error("Error moving next patient", err);
       // Re-fetch to ensure UI is in sync with server
