@@ -49,7 +49,7 @@ app.post("/api/patients", async (req, res) => {
     res.status(201).json(patient);
   } catch (err) {
     console.error(err);
-    res.status(500).json({ message: "Server error" });
+    res.status(500).json({ message: "Server error", error: err.message });
   }
 });
 
