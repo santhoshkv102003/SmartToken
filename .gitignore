@@ -10,3 +10,5 @@ server/node_modules/
 # builds
 dist/
 build/
+
+.vercel
