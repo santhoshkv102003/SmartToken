@@ -3,6 +3,7 @@ import mongoose from "mongoose";
 import cors from "cors";
 import dotenv from "dotenv";
 import Patient from "./models/patient.js";
+import connectDB from "./config/db.js";
 
 dotenv.config();
 
@@ -13,10 +14,21 @@ app.use(cors());
 app.use(express.json());
 
 // DB Connection
-mongoose
-  .connect(process.env.MONGO_URI, { dbName: "hospital_tokens" })
-  .then(() => console.log("MongoDB connected ✅"))
-  .catch((err) => console.error("MongoDB error:", err));
+// DB Connection
+// mongoose
+//   .connect(process.env.MONGO_URI, { dbName: "hospital_tokens" })
+//   .then(() => console.log("MongoDB connected ✅"))
+//   .catch((err) => console.error("MongoDB error:", err));
+// Connect to DB before every request (for Vercel serverless environment)
+app.use(async (req, res, next) => {
+  try {
+    await connectDB();
+    next();
+  } catch (err) {
+    console.error("Database connection failed:", err);
+    res.status(500).json({ message: "Database connection failed" });
+  }
+});
 
 // ROUTES
 
@@ -102,6 +114,8 @@ app.get("/api/summary", async (req, res) => {
 });
 
 const PORT = process.env.PORT || 5000;
-app.listen(PORT, () => console.log(`Server running on port ${PORT} 🚀`));
+if (process.env.NODE_ENV !== 'production') {
+  app.listen(PORT, () => console.log(`Server running on port ${PORT} 🚀`));
+}
 
 export default app;
