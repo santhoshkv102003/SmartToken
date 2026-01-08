@@ -46,8 +46,8 @@ const Login = () => {
             </svg>
             <h1>SmartToken</h1>
           </div>
-          <h2>Welcome Back</h2>
-          <p className="text-muted">Please sign in to continue</p>
+          <h2>Welcome</h2>
+          <p className="text-muted">Username: admin | Password: 1234</p>
         </div>
 
         <form className="login-form" onSubmit={handleSubmit}>
