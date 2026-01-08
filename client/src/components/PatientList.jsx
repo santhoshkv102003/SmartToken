@@ -1,24 +1,38 @@
 import "../styles/patientlist.css";
 
-const PatientList = ({ title, list }) => {
-  return (
-    <div className="list-wrapper">
-      <h2>{title}</h2>
-
-      <div className="list-container">
-        {list.length === 0 ? (
-          <p>No patients found</p>
-        ) : (
-          list.map((p, i) => (
-            <div key={i} className="list-card">
-              <h3>{p.name}</h3>
-              <p>Age: {p.age}</p>
-              <p>Phone: {p.phone}</p>
-              <p>Treatment: {p.treatment}</p>
-            </div>
-          ))
-        )}
+const PatientList = ({ list }) => {
+  if (!list || list.length === 0) {
+    return (
+      <div className="empty-state">
+        <p>No patients found</p>
       </div>
+    );
+  }
+
+  return (
+    <div className="table-wrapper">
+      <table className="patient-table">
+        <thead>
+          <tr>
+            <th>Name</th>
+            <th>Age</th>
+            <th>Phone</th>
+            <th>Treatment</th>
+          </tr>
+        </thead>
+        <tbody>
+          {list.map((p, i) => (
+            <tr key={i}>
+              <td className="patient-name">{p.name}</td>
+              <td>{p.age}</td>
+              <td className="patient-phone">{p.phone}</td>
+              <td>
+                <span className="treatment-badge">{p.treatment}</span>
+              </td>
+            </tr>
+          ))}
+        </tbody>
+      </table>
     </div>
   );
 };
