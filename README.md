@@ -2,6 +2,8 @@
 
 A modern web application for token management and authentication built with a client-server architecture.
 
+![App Screenshot](client/screenshot.png)
+
 ## 🚀 Live Demo
 
 [https://smart-token-indol.vercel.app/](https://smart-token-indol.vercel.app/)
