@@ -6,7 +6,7 @@
   align-items: center;
   padding: 1.5rem;
   background: linear-gradient(rgba(30, 41, 59, 0.9), rgba(27, 122, 106, 0.9)),
-              url('../assets/image.png') no-repeat center center fixed;
+    url('../assets/image.png') no-repeat center center fixed;
   background-size: cover;
   position: relative;
   overflow: hidden;
@@ -25,8 +25,13 @@
 }
 
 @keyframes rotate {
-  from { transform: rotate(0deg); }
-  to { transform: rotate(360deg); }
+  from {
+    transform: rotate(0deg);
+  }
+
+  to {
+    transform: rotate(360deg);
+  }
 }
 
 .login-glass {
@@ -243,7 +248,9 @@
 }
 
 @keyframes spin {
-  to { transform: rotate(360deg); }
+  to {
+    transform: rotate(360deg);
+  }
 }
 
 /* Footer */
@@ -277,6 +284,7 @@
     opacity: 0;
     transform: translateY(20px);
   }
+
   to {
     opacity: 1;
     transform: translateY(0);
@@ -284,8 +292,15 @@
 }
 
 @keyframes float {
-  0%, 100% { transform: translateY(0); }
-  50% { transform: translateY(-10px); }
+
+  0%,
+  100% {
+    transform: translateY(0);
+  }
+
+  50% {
+    transform: translateY(-10px);
+  }
 }
 
 /* Responsive Adjustments */
@@ -293,11 +308,11 @@
   .login-glass {
     padding: 1.5rem;
   }
-  
+
   .login-logo h1 {
     font-size: 1.5rem;
   }
-  
+
   .login-header h2 {
     font-size: 1.25rem;
   }

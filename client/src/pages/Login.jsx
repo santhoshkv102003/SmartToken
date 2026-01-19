@@ -13,7 +13,7 @@ const Login = () => {
     e.preventDefault();
     const user = e.target.username.value.trim();
     const pass = e.target.password.value;
-    
+
     if (!user || !pass) {
       setErr("Please enter both username and password");
       return;
@@ -60,13 +60,13 @@ const Login = () => {
                   <circle cx="12" cy="7" r="4"></circle>
                 </svg>
               </span>
-              <input 
+              <input
                 id="username"
-                name="username" 
-                type="text" 
-                placeholder="Enter your username" 
+                name="username"
+                type="text"
+                placeholder="Enter your username"
                 autoComplete="username"
-                required 
+                required
               />
             </div>
           </div>
@@ -83,13 +83,13 @@ const Login = () => {
                   <path d="M7 11V7a5 5 0 0 1 10 0v4"></path>
                 </svg>
               </span>
-              <input 
+              <input
                 id="password"
-                name="password" 
-                type="password" 
-                placeholder="••••••••" 
+                name="password"
+                type="password"
+                placeholder="••••••••"
                 autoComplete="current-password"
-                required 
+                required
               />
             </div>
           </div>
@@ -105,8 +105,8 @@ const Login = () => {
             </div>
           )}
 
-          <button 
-            type="submit" 
+          <button
+            type="submit"
             className={`btn-primary w-100 ${isLoading ? 'loading' : ''}`}
             disabled={isLoading}
           >
