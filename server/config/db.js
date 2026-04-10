@@ -28,6 +28,7 @@ async function connectDB() {
     if (!cached.promise) {
         const opts = {
             bufferCommands: false,
+            dbName: 'hospital_tokens',
         };
 
         cached.promise = mongoose.connect(MONGODB_URI, opts).then((mongoose) => {

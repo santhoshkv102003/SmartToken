@@ -1,4 +1,4 @@
-import axios from "axios";
+
 import { useState, useRef, useEffect } from "react";
 import '../styles/booking.css';
 
@@ -69,20 +69,22 @@ const BookingForm = ({ onBack, onSubmit }) => {
     });
   };
 
+  const [loading, setLoading] = useState(false);
+
   const handleSubmit = async (e) => {
     e.preventDefault();
+    if (loading) return;
 
+    setLoading(true);
     try {
-      await axios.post(
-        "/api/patients",
-        { 
+      if (onSubmit) {
+        await onSubmit({
           name: form.name,
           age: Number(form.age),
           phone: form.phone,
-          treatment: form.treatment 
-        },
-        { headers: { "Content-Type": "application/json" } }
-      );
+          treatment: form.treatment
+        });
+      }
 
       setForm({
         name: "",
@@ -91,12 +93,12 @@ const BookingForm = ({ onBack, onSubmit }) => {
         treatment: ""
       });
 
-      if (onSubmit) onSubmit(form);
       onBack();
-
     } catch (err) {
       console.error("❌ Error saving patient:", err);
-      alert("Failed to save patient. Check your server.");
+      alert("Failed to save patient. Please check your connection.");
+    } finally {
+      setLoading(false);
     }
   };
 
@@ -186,7 +188,9 @@ const BookingForm = ({ onBack, onSubmit }) => {
           />
         </div>
 
-        <button type="submit" className="submit-btn">Submit</button>
+        <button type="submit" className="submit-btn" disabled={loading}>
+          {loading ? "Saving..." : "Submit"}
+        </button>
         <button type="button" className="back-btn" onClick={onBack}>
           Back
         </button>

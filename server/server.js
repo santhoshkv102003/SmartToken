@@ -8,7 +8,7 @@ import connectDB from "./config/db.js";
 dotenv.config();
 
 // Use local MongoDB for development
-process.env.MONGO_URI = 'mongodb://localhost:27017/hospital_tokens';
+
 
 const app = express();
 
