@@ -69,7 +69,9 @@ export const AppProvider = ({ children }) => {
       });
 
       if (!response.ok) {
-        throw new Error('Failed to add patient');
+        const errorData = await response.json().catch(() => ({}));
+        console.error('Server error details:', errorData);
+        throw new Error(errorData.error || 'Failed to add patient');
       }
 
       const newPatient = await response.json();

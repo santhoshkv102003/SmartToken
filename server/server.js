@@ -63,8 +63,12 @@ app.post("/api/patients", async (req, res) => {
 
     res.status(201).json(patient);
   } catch (err) {
-    console.error(err);
-    res.status(500).json({ message: "Server error", error: err.message });
+    console.error("Error in POST /api/patients:", err);
+    res.status(500).json({ 
+      message: "Server error during patient creation", 
+      error: err.message,
+      stack: process.env.NODE_ENV === 'development' ? err.stack : undefined
+    });
   }
 });
 
