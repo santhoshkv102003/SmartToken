@@ -9,7 +9,7 @@ import "../styles/admin.css";
 
 const Admin = () => {
   const {
-    upcomingPatients,
+    upcomingPatients, 
     visitedPatients,
     addPatient,
     nextPatient,
